@@ -9,20 +9,30 @@ import java.util.List;
 @Service
 public class ProductService {
     private List<Product> products = new ArrayList<>();
-    private long ID=0;
+    private long ID = 0;
 
     {
-        products.add(new Product(++ID,"fsdfs","fsfsf","fdsfs",22,1,"no","qqqq","w", "sdsds",10));
-        products.add(new Product(++ID,"fsdfs","fsfsf","fdsfs",22,1,"no","qqqq","w", "sdsds",10));
+        products.add(new Product(++ID, "fsdfs", "fsfsf", "fdsfs", 22, 1, "no", "qqqq", "w", "sdsds", 10));
+        products.add(new Product(++ID, "fsdfs", "fsfsf", "fdsfs", 22, 1, "no", "qqqq", "w", "sdsds", 10));
     }
+
     public List<Product> listProduct() {
         return products;
     }
-    public void saveProduct(Product product){
+
+    public void saveProduct(Product product) {
         product.setId(++ID);
         products.add(product);
     }
-    public void deleteProduct(Long id){
+
+    public void deleteProduct(Long id) {
         products.removeIf(product -> product.getId().equals(id));
+    }
+
+    public Product getProductById(Long id) {
+        for (Product product : products) {
+            if (product.getId().equals(id)) return product;
+        }
+        return null;
     }
 }
