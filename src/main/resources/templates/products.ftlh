@@ -10,10 +10,16 @@
 <body>
     <h1>iShop</h1><hr>
 <h1>Список товаров</h1>
+<form action="/" method="get">
+    Поиск по названию: <input type="text" name="name"><br>
+    <input type="submit" value="Поиск"/>
+</form>
 <#list products as product>
     <div>
         <p><b>${product.name}</b> ${product.price} руб.  ${product.quantityStorage} | <a href="/product/${product.id}">подробнее...</a></p>
     </div>
+    <#else>
+    <h3>Список пуст...</h3>
 </#list>
 <hr>
     <h3>создать новый товар</h3>
