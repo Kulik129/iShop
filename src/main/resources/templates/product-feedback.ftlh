@@ -12,13 +12,12 @@
 <h4>Отзывы о товаре</h4>
 <#list reviews as review>
     <p>Отзыв: ${review.feedback} отценка: ${review.score}</p>
+    <form action="/product/delete-feedback/${review.id}" method="post">
+        <input type="submit" value="Удалить"/>
+    </form>
 </#list>
 
-
 <hr>
-<#--<h3>создать новый товар</h3>-->
-<#--<form action="/product/delete-feedback/${reviews}" method="post">-->
-<#--    <input type="submit" value="Удалить"/>-->
-<#--</form>-->
+
 </body>
 </html>
