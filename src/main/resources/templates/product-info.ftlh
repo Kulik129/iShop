@@ -16,14 +16,21 @@
 <b>Цена </b>${product.price}<br><br>
 <b>К-во на складе: </b>${product.quantityStorage}<br><br>
 <b>Информация о скидках: </b>${product.discountInformation}<br><br>
-<b>Комментарии: </b>${product.comments}<br><br>
+<#--<b>Комментарии: </b>${product.comments}<br><br>-->
 <b>Ключевые слова: </b>${product.keyWords}<br><br>
 <b>Характеристики: </b>${product.characteristicsTable}<br><br>
-<b>Оценка: </b>${product.score}<br><br>
+<#--<b>Оценка: </b>${product.score}<br><br>-->
+
 <hr>
 <h3>создать новый товар</h3>
 <form action="/product/delete/${product.id}" method="post">
     <input type="submit" value="Удалить"/>
+</form>
+<h3>добавить отзыв</h3>
+<form action="/product/reviews" method="post">
+    Отзыв: <input type="text" , name="feedback"/><br><br>
+    Оценка: <input type="number", name="score"/><br><br>
+    <input type="submit" value="Добавить">
 </form>
 </body>
 </html>

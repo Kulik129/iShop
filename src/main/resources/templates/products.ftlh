@@ -17,10 +17,12 @@
 <#list products as product>
     <div>
         <p><b>${product.name}</b> ${product.price} руб.  ${product.quantityStorage} | <a href="/product/${product.id}">подробнее...</a></p>
+        <p><b>${product.name}</b> | <a href="/feedback">отзывы</a></p>
     </div>
     <#else>
     <h3>Список пуст...</h3>
 </#list>
+
 <hr>
     <h3>создать новый товар</h3>
 <form action="/product/create" method="post">
@@ -30,10 +32,10 @@
     Цена: <input type="number", name="price"/><br><br>
     К-во на складе: <input type="number", name="quantityStorage"/><br><br>
     Информация о скидках: <input type="text", name="discountInformation"/><br><br>
-    Комментарии: <input type="text", name="comments"/><br><br>
+<#--    Комментарии: <input type="text", name="comments"/><br><br>-->
     Ключевые слова: <input type="text", name="keyWords"/><br><br>
     Характеристики: <input type="text", name="characteristicsTable"/><br><br>
-    Оценка: <input type="number", name="score"/><br><br>
+<#--    Оценка: <input type="number", name="score"/><br><br>-->
     <input type="submit" value="добавить"/>
 </form>
 </body>
