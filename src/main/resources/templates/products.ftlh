@@ -8,7 +8,7 @@
     <title>iShop</title>
 </head>
 <body>
-    <h1>iShop</h1><hr>
+    <h1>iShop | <a href="/login">Войти</a></h1><hr>
 <h1>Список товаров</h1>
 <form action="/" method="get">
     Поиск по названию: <input type="text" name="name"><br>

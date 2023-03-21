@@ -22,17 +22,13 @@ public class Product {
     @Column(name = "organization")
     private String organization;
     @Column(name = "price")
-    private  int price;
+    private int price;
     @Column(name = "quantityStorage")
     private int quantityStorage;
     @Column(name = "discountInformation")
     private String discountInformation;
-//    @Column(name = "comments")
-//    private String comments;
     @Column(name = "keyWords")
     private String keyWords;
     @Column(name = "characteristicsTable")
     private String characteristicsTable;
-//    @Column(name = "score")
-//    private int score;
 }

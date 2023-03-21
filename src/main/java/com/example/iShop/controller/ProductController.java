@@ -17,41 +17,45 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProductController {
     private final ProductService productService;
     private final ReviewsService reviewsService;
+
     @GetMapping("/")
-    public String products(@RequestParam(name = "name", required = false) String name, Model model){
+    public String products(@RequestParam(name = "name", required = false) String name, Model model) {
         model.addAttribute("products", productService.listProduct(name));
         return "products";
     }
+
     @GetMapping("/product/{id}")
-    public String productInfo(@PathVariable Long id, Model model){
+    public String productInfo(@PathVariable Long id, Model model) {
         model.addAttribute("product", productService.getProductById(id));
         return "product-info";
     }
+
     @GetMapping("/feedback")
-    public String productFeedback(@RequestParam(name = "feedback", required = false) String feedback, Model model){
+    public String productFeedback(@RequestParam(name = "feedback", required = false) String feedback, Model model) {
         model.addAttribute("reviews", reviewsService.reviewsList(feedback));
         return "product-feedback";
     }
 
     @PostMapping("/product/create")
-    public String createProduct(Product product){
+    public String createProduct(Product product) {
         productService.saveProduct(product);
         return "redirect:/";
     }
+
     @PostMapping("/product/reviews")
-    public String createFeedback(Reviews reviews){
+    public String createFeedback(Reviews reviews) {
         reviewsService.addFeedback(reviews);
         return "redirect:/";
     }
 
     @PostMapping("/product/delete/{id}")
-    public String deleteProduct(@PathVariable Long id){
+    public String deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return "redirect:/";
     }
 
     @PostMapping("/product/delete-feedback/{id}")
-    public String deleteFeedback(@PathVariable Long id){
+    public String deleteFeedback(@PathVariable Long id) {
         reviewsService.deleteFeedback(id);
         return "redirect:/";
     }

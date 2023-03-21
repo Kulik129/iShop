@@ -16,10 +16,8 @@
 <b>Цена </b>${product.price}<br><br>
 <b>К-во на складе: </b>${product.quantityStorage}<br><br>
 <b>Информация о скидках: </b>${product.discountInformation}<br><br>
-<#--<b>Комментарии: </b>${product.comments}<br><br>-->
 <b>Ключевые слова: </b>${product.keyWords}<br><br>
 <b>Характеристики: </b>${product.characteristicsTable}<br><br>
-<#--<b>Оценка: </b>${product.score}<br><br>-->
 
 <hr>
 <h3>создать новый товар</h3>
