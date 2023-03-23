@@ -10,7 +10,7 @@
 <h1>iShop</h1>
 <hr>
 <h2>Панель администратора</h2>
-<table>
+<table border="1">
     <tr>
         <th>Email:</th>
         <th>Номер телефона:</th>
@@ -24,12 +24,12 @@
         <tr>
             <th>${user.email}</th>
             <th>${user.phoneNumber}</th>
-            <th>${user.active}</th>
-            <th><#list user.roles as rol>${rol}<#sep>, </#list></th>
+            <th><#if user.active>true<#else>false</#if></th>
+            <th><#list user.roles as rol>${rol}, </#list></th>
             <th>
-                <form action="/admin/user/ban/{id}">
-                    <input type="hidden" name="_csrf" value=" ${_csrf.token}">
-                    <input type="submit" value="Блокировка">
+                <form action="/admin/user/ban/${user.id}" method="post">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <input type="submit" value="Бан">
                 </form>
             </th>
             <th><a href="/admin/user/edit/{user}">Редактирование</a></th>
