@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
+
 @Controller
 @RequiredArgsConstructor
 public class ProductController {
@@ -19,8 +21,9 @@ public class ProductController {
     private final ReviewsService reviewsService;
 
     @GetMapping("/")
-    public String products(@RequestParam(name = "name", required = false) String name, Model model) {
+    public String products(@RequestParam(name = "name", required = false) String name,Principal principal, Model model) {
         model.addAttribute("products", productService.listProduct(name));
+        model.addAttribute("user", reviewsService.getUserByPrincipal(principal));
         return "products";
     }
 
@@ -43,8 +46,8 @@ public class ProductController {
     }
 
     @PostMapping("/product/reviews")
-    public String createFeedback(Reviews reviews) {
-        reviewsService.addFeedback(reviews);
+    public String createFeedback(Reviews reviews, Principal principal) {
+        reviewsService.addFeedback(principal,reviews);
         return "redirect:/";
     }
 

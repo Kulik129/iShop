@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "products")
 @Data
@@ -31,4 +34,7 @@ public class Product {
     private String keyWords;
     @Column(name = "characteristicsTable")
     private String characteristicsTable;
+
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+//    private List<Reviews> reviewsList = new ArrayList<>();
 }

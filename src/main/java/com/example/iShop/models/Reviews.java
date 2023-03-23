@@ -19,4 +19,10 @@ public class Reviews {
     private String feedback;
     @Column(name = "score")
     private int score;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn
+    private User user;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY )
+    @JoinColumn
+    private Product productReviews;
 }

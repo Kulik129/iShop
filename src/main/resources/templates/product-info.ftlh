@@ -1,4 +1,3 @@
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -8,7 +7,8 @@
     <title>iShop</title>
 </head>
 <body>
-<h1>iShop</h1><hr>
+<h1>iShop</h1>
+<hr>
 <h4>Подробная информация о товаре</h4>
 <b>Название </b>${product.name}<br><br>
 <b>Описание </b>${product.description}<br><br>
@@ -20,14 +20,14 @@
 <b>Характеристики: </b>${product.characteristicsTable}<br><br>
 
 <hr>
-<h3>создать новый товар</h3>
-<form action="/product/delete/${product.id}" method="post">
-    <input type="submit" value="Удалить"/>
-</form>
-<h3>добавить отзыв</h3>
+<#--<h3>Удалить товар</h3>-->
+<#--<form action="/product/delete/${product.id}" method="post">-->
+<#--    <input type="submit" value="Удалить"/>-->
+<#--</form>-->
+<h3>Добавить отзыв</h3>
 <form action="/product/reviews" method="post">
     Отзыв: <input type="text" , name="feedback"/><br><br>
-    Оценка: <input type="number", name="score"/><br><br>
+    Оценка: <input type="number" , name="score"/><br><br>
     <input type="submit" value="Добавить">
 </form>
 </body>
