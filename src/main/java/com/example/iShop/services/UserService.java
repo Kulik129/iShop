@@ -26,25 +26,29 @@ public class UserService {
         if (userRepository.findByEmail(email) != null) return false;
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.getRoles().add(Role.ADMIN);
+        user.getRoles().add(Role.USER);
         log.info("Saving new User with email: {}", email);
         userRepository.save(user);
         return true;
     }
 
-    public List<User> userList(){
+    public List<User> userList() {
         return userRepository.findAll();
     }
 
     public void blockUser(Long id) {
         User user = userRepository.findById(id).orElse(null);
-        if(user!=null){
-            user.setActive(false);
-            log.info("Block user email: {}, id: {}", user.getEmail(),user.getId());
+        if (user != null) {
+            if(user.isActive()){
+                user.setActive(false);
+                log.info("Block user email: {}, id: {}", user.getEmail(), user.getId());
+            } else {
+                user.setActive(true);
+                log.info("Unlock user email: {}, id: {}", user.getEmail(), user.getId());
+            }
         }
         userRepository.save(user);
     }
-
 
     public void changeUserRoles(User user, Map<String, String> form) {
         Set<String> roles = Arrays.stream(Role.values())
