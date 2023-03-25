@@ -20,8 +20,9 @@
 <b>Характеристики: </b>${product.characteristicsTable}<br><br>
 
 <hr>
+
 <#--<h3>Удалить товар</h3>-->
-<#--<form action="/product/delete/${product.id}" method="post">-->
+<#--<form action="/product/delete/${product.id}" method="get">-->
 <#--    <input type="submit" value="Удалить"/>-->
 <#--</form>-->
 <h3>Добавить отзыв</h3>

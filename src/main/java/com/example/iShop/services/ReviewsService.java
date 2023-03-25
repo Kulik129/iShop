@@ -24,7 +24,6 @@ public class ReviewsService {
     }
 
     public void addFeedback(Principal principal, Reviews reviews) {
-        reviews.setUser(getUserByPrincipal(principal));
         log.info("save new {}", reviews);
         reviewsRepository.save(reviews);
     }
@@ -41,4 +40,5 @@ public class ReviewsService {
     public Reviews getFeedbackById(Long id) {
         return reviewsRepository.findById(id).orElse(null);
     }
+
 }

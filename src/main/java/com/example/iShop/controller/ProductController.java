@@ -2,8 +2,10 @@ package com.example.iShop.controller;
 
 import com.example.iShop.models.Product;
 import com.example.iShop.models.Reviews;
+import com.example.iShop.models.enums.Role;
 import com.example.iShop.services.ProductService;
 import com.example.iShop.services.ReviewsService;
+import com.example.iShop.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import java.security.Principal;
 public class ProductController {
     private final ProductService productService;
     private final ReviewsService reviewsService;
+    private final UserService userService;
 
     @GetMapping("/")
     public String products(@RequestParam(name = "name", required = false) String name,Principal principal, Model model) {
@@ -51,7 +54,7 @@ public class ProductController {
         return "redirect:/";
     }
 
-    @PostMapping("/product/delete/{id}")
+    @GetMapping("/product/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return "redirect:/";

@@ -1,7 +1,11 @@
 package com.example.iShop.controller;
 
+import com.example.iShop.models.Product;
+import com.example.iShop.models.Reviews;
 import com.example.iShop.models.User;
 import com.example.iShop.models.enums.Role;
+import com.example.iShop.services.ProductService;
+import com.example.iShop.services.ReviewsService;
 import com.example.iShop.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
 import java.util.Map;
 
 @Controller
@@ -19,9 +24,10 @@ import java.util.Map;
 @PreAuthorize("hasAuthority('ADMIN')")
 public class AdminController {
     private final UserService userService;
+    private final ProductService productService;
 
     @GetMapping("/admin")
-    public String admin(Model model) {
+    public String admin(Model model,Long id) {
         model.addAttribute("users", userService.userList());
         return "admin";
     }
