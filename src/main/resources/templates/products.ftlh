@@ -31,8 +31,7 @@
 </form>
 <#list products as product>
     <div>
-        <p><b>${product.name}</b> ${product.price} руб. ${product.quantityStorage} | <a href="/product/${product.id}">подробнее...</a>
-        </p>
+        <p><b>${product.name}</b> ${product.price} руб. | <a href="/product/${product.id}">Подробнее...</a></p>
         <p><b>${product.name}</b> | <a href="/feedback">отзывы</a></p>
     </div>
 <#else>

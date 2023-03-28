@@ -40,22 +40,21 @@ public class ProductService {
             image3 = toImageEntity(file3);
             product.addImageToProduct(image3);
         }
-        log.info("Saving new Product. Title: {}; Author: {}", product.getName(), product.getOrganization());
+        log.info("Saving new Product: {}", product.getName());
         Product productFromDb = productRepository.save(product);
         productFromDb.setPreviewImageId(productFromDb.getImages().get(0).getId());
         productRepository.save(product);
     }
 
     private Image toImageEntity(MultipartFile file) throws IOException {
-        Image images = new Image();
-        images.setName(file.getName());
-        images.setOriginalFileName(file.getOriginalFilename());
-        images.setContentType(file.getContentType());
-        images.setSize(file.getSize());
-        images.setBytes(file.getBytes());
-        return images;
+        Image image = new Image();
+        image.setName(file.getName());
+        image.setOriginalFileName(file.getOriginalFilename());
+        image.setContentType(file.getContentType());
+        image.setSize(file.getSize());
+        image.setBytes(file.getBytes());
+        return image;
     }
-
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
