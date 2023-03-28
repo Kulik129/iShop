@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +36,20 @@ public class Product {
     @Column(name = "characteristicsTable")
     private String characteristicsTable;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
-//    private List<Reviews> reviewsList = new ArrayList<>();
+
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+    private List<Image> images = new ArrayList<>();
+    private Long previewImageId;
+    private LocalDateTime localDateTime;
+
+    @PrePersist
+    private void init() {
+        localDateTime = LocalDateTime.now();
+    }
+
+    public void addImageToProduct(Image image){
+        image.setProduct(this);
+        images.add(image);
+    }
 }

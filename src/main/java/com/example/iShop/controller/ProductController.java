@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.security.Principal;
 
 @Controller
@@ -21,7 +23,6 @@ import java.security.Principal;
 public class ProductController {
     private final ProductService productService;
     private final ReviewsService reviewsService;
-    private final UserService userService;
 
     @GetMapping("/")
     public String products(@RequestParam(name = "name", required = false) String name,Principal principal, Model model) {
@@ -31,8 +32,10 @@ public class ProductController {
     }
 
     @GetMapping("/product/{id}")
-    public String productInfo(@PathVariable Long id, Model model) {
-        model.addAttribute("product", productService.getProductById(id));
+    public String productInfo(Model model, @PathVariable Long id) {
+        Product product = productService.getProductById(id);
+        model.addAttribute("product", product);
+        model.addAttribute("images", product.getImages());
         return "product-info";
     }
 
@@ -43,10 +46,12 @@ public class ProductController {
     }
 
     @PostMapping("/product/create")
-    public String createProduct(Product product) {
-        productService.saveProduct(product);
+    public String createProduct(@RequestParam("file1") MultipartFile file1, @RequestParam("file2") MultipartFile file2,
+                                @RequestParam("file3") MultipartFile file3, Product product) throws IOException {
+        productService.saveProduct(product, file1, file2, file3);
         return "redirect:/";
     }
+
 
     @PostMapping("/product/reviews")
     public String createFeedback(Reviews reviews, Principal principal) {

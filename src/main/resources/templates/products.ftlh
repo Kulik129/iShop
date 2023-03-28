@@ -34,11 +34,9 @@
         <p><b>${product.name}</b> ${product.price} руб. ${product.quantityStorage} | <a href="/product/${product.id}">подробнее...</a>
         </p>
         <p><b>${product.name}</b> | <a href="/feedback">отзывы</a></p>
-
     </div>
 <#else>
     <h3>Список пуст...</h3>
-
 </#list>
 
 <hr>
