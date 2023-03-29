@@ -30,15 +30,13 @@ public class ProductController {
         return "products";
     }
 
-        @GetMapping("/product/{id}")
+    @GetMapping("/product/{id}")
     public String productInfo(Model model, @PathVariable Long id) {
         Product product = productService.getProductById(id);
         model.addAttribute("product", product);
         model.addAttribute("images", product.getImages());
         return "product-info";
     }
-
-
 
     @GetMapping("/feedback")
     public String productFeedback(@RequestParam(name = "feedback", required = false) String feedback, Model model) {

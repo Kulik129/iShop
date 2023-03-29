@@ -23,7 +23,6 @@
 </#if>
 <hr>
 
-
 <h1>Список товаров</h1>
 <form action="/" method="get">
     Поиск по названию: <input type="text" name="name"><br>
@@ -31,8 +30,7 @@
 </form>
 <#list products as product>
     <div>
-        <p><b>${product.name}</b> ${product.price} руб. | <a href="/product/${product.id}">Подробнее...</a></p>
-        <p><b>${product.name}</b> | <a href="/feedback">отзывы</a></p>
+        <p><b>${product.name}</b> ${product.price} руб. | <a href="/product/${product.id?c}">Подробнее...</a></p>
     </div>
 <#else>
     <h3>Список пуст...</h3>

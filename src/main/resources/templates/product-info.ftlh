@@ -23,7 +23,7 @@
 <b>Ключевые слова: </b>${product.keyWords}<br><br>
 <b>Характеристики: </b>${product.characteristicsTable}<br><br>
 <hr>
-<form action="/product/delete/${product.id}" method="get">
+<form action="/product/delete/${product.id?c}" method="get">
     <input type="submit" value="Удалить товар"/>
 </form>
 <hr>
