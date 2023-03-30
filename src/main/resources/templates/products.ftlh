@@ -7,7 +7,7 @@
     <title>iShop</title>
 </head>
 <body>
-<h1>iShop</h1>
+<h1><a href="/">iShop</a><h1/>
 <hr>
 <#if user.email??>
     <h3>Имя пользователя: <i>${user.name}</i></h3>

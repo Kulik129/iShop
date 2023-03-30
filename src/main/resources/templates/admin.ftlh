@@ -42,7 +42,6 @@
 <hr>
 <hr>
 
-
 <h3>Создать новый товар</h3>
 <form action="/product/create" method="post" enctype="multipart/form-data">
     Название: <input type="text" , name="name"/><br><br>
@@ -61,11 +60,17 @@
     <input type="submit" value="Добавить"/>
 
 </form>
-
-
 <hr>
 <hr>
-
+<h3>Удалить товар</h3>
+<#list products as product>
+    <b>Название </b>${product.name}<br><br>
+    <b>Описание </b>${product.description}<br><br>
+    <b>Организация </b>${product.organization}<br><br>
+    <form action="/product/delete/${product.id?c}" method="get">
+        <input type="submit" value="Удалить товар"/>
+    </form>
+</#list>
 
 </body>
 </html>

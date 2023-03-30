@@ -27,8 +27,9 @@ public class AdminController {
     private final ProductService productService;
 
     @GetMapping("/admin")
-    public String admin(Model model) {
+    public String admin(Model model, String name) {
         model.addAttribute("users", userService.userList());
+        model.addAttribute("products", productService.listProduct(name));
         return "admin";
     }
 

@@ -7,11 +7,11 @@
     <title>iShop</title>
 </head>
 <body>
-<h1>iShop</h1>
+<h1><a href="/">iShop</a><h1/>
 <hr>
 <h4>Подробная информация о товаре</h4>
 <#list images as img>
-    <img src="/images/${img.id}" height="60px"/><br><br>
+    <img src="/images/${img.id?c}" height="120px"/><br><br>
 </#list>
 
 <b>Название </b>${product.name}<br><br>
@@ -23,9 +23,7 @@
 <b>Ключевые слова: </b>${product.keyWords}<br><br>
 <b>Характеристики: </b>${product.characteristicsTable}<br><br>
 <hr>
-<form action="/product/delete/${product.id?c}" method="get">
-    <input type="submit" value="Удалить товар"/>
-</form>
+
 <hr>
 <h3>Добавить отзыв</h3>
 <form action="/product/reviews" method="post">

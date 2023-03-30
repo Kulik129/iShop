@@ -18,8 +18,9 @@ public class ImageController {
     private final ImagesRepository imageRepository;
 
     @GetMapping("/images/{id}")
-    private ResponseEntity<?> getImageById(@PathVariable Long id) {
-        Image image = imageRepository.findById(id).orElse(null);
+    private ResponseEntity<?> getImageById(@PathVariable(name = "id") String id) {
+        Long longImgId = Long.parseLong(id.trim());
+        Image image = imageRepository.findById(longImgId).orElse(null);
         return ResponseEntity.ok()
                 .header("fileName", image.getOriginalFileName())
                 .contentType(MediaType.valueOf(image.getContentType()))
