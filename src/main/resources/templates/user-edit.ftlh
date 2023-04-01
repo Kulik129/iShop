@@ -8,7 +8,7 @@
     <title>iShop</title>
 </head>
 <body>
-<h1>iShop</h1><hr>
+<h1 style="color: blueviolet"><a href="/">iShop</a><h1/>
 <h3>Редактирование пользователя ${user.name}</h3>
 <form action="/admin/user/edit" method="post">
     <#list roles as role>

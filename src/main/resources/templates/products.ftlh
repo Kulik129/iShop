@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>iShop</title>
 </head>
+
 <body>
-<h1><a href="/">iShop</a><h1/>
+<h1 style="color: blueviolet"><a href="/">iShop</a><h1/>
 <hr>
 <#if user.email??>
     <h3>Имя пользователя: <i>${user.name}</i></h3>
@@ -19,19 +20,22 @@
         <a href="/admin">Панель администратора</a>
     </#if>
 <#else>
-    <a href="/login">Войти</a></h1>
+    <h4><a href="/login">Войти</a></h4>
 </#if>
 <hr>
 
 <h1>Список товаров</h1>
 <form action="/" method="get">
-    Поиск по названию: <input type="text" name="name"><br>
+    Поиск по названию: <input type="text" name="name">
     <input type="submit" value="Поиск"/>
 </form>
 <#list products as product>
-    <div>
-        <p><b>${product.name}</b> ${product.price} руб. | <a href="/product/${product.id?c}">Подробнее...</a></p>
-    </div>
+    <a href="/product/${product.id?c}">
+        <p><b>${product.name}</b></p>
+        <img src="/images/${product.previewImageId?c}" height="120px">
+        <h3>${product.price} ₽</h3>
+    </a>
+
 <#else>
     <h3>Список пуст...</h3>
 </#list>

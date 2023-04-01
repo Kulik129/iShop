@@ -8,11 +8,14 @@
     <title>iShop</title>
 </head>
 <body>
-<h1>iShop</h1><hr>
+<h1 style="color: blueviolet"><a href="/">iShop</a><h1/>
 <h1>Авторизация</h1>
-<form action="/login" method="post">
-    Электронная почта: <input type="email" name="username"><br><br>
-    Пароль: <input type="password" name="password"><br><br>
+
+
+<form class="box" action="/login" method="post">
+    <h1>Email</h1>
+    <input type="email" name="username" placeholder="email">
+    <input type="password" name="password" placeholder="password">
     <input type="hidden" name="_csrf" value="${_csrf.token}">
     <input type="submit" value="Вход"/>
 </form>

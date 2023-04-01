@@ -59,12 +59,6 @@ public class ProductController {
         return "redirect:/";
     }
 
-    @GetMapping("/product/delete/{id}")
-    public String deleteProduct(@PathVariable Long id) {
-        productService.deleteProduct(id);
-        return "redirect:/";
-    }
-
     @PostMapping("/product/delete-feedback/{id}")
     public String deleteFeedback(@PathVariable Long id) {
         reviewsService.deleteFeedback(id);

@@ -7,8 +7,7 @@
     <title>iShop</title>
 </head>
 <body>
-<h1>iShop</h1>
-<hr>
+<h1 style="color: blueviolet"><a href="/">iShop</a><h1/>
 <h2>Панель администратора</h2>
 <table border="1">
     <tr>
@@ -64,10 +63,12 @@
 <hr>
 <h3>Удалить товар</h3>
 <#list products as product>
-    <b>Название </b>${product.name}<br><br>
-    <b>Описание </b>${product.description}<br><br>
-    <b>Организация </b>${product.organization}<br><br>
+    <b>Название</b> ${product.name}<br><br>
+    <img src="/images/${product.previewImageId?c}" height="120px"><br>
+    <b>Описание</b> ${product.description}<br><br>
+    <b>Организация</b> ${product.organization}<br><br>
     <form action="/product/delete/${product.id?c}" method="get">
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <input type="submit" value="Удалить товар"/>
     </form>
 </#list>

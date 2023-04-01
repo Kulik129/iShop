@@ -8,7 +8,7 @@
     <title>iShop</title>
 </head>
 <body>
-<h1>iShop</h1><hr>
+<h1 style="color: blueviolet"><a href="/">iShop</a><h1/>
 <h1>Регистрация</h1>
 <form action="/registration" method="post">
     Имя: <input type="text" name="name"><br><br>

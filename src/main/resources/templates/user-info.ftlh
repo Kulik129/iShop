@@ -4,7 +4,7 @@
     <title>iShop</title>
 </head>
 <body>
-<h1>iShop</h1><hr>
+<h1 style="color: blueviolet"><a href="/">iShop</a><h1/>
 <h3>Подробная информация о пользователе ${user.name}</h3>
 <b>Номер телефона: </b> ${user.phoneNumber}<br>
 <b>Email: </b> ${user.email}<br>

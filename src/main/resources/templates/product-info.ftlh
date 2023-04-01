@@ -7,7 +7,7 @@
     <title>iShop</title>
 </head>
 <body>
-<h1><a href="/">iShop</a><h1/>
+<h1 style="color: blueviolet"><a href="/">iShop</a><h1/>
 <hr>
 <h4>Подробная информация о товаре</h4>
 <#list images as img>
@@ -31,6 +31,7 @@
     Оценка: <input type="number" , name="score"/><br><br>
     <input type="submit" value="Добавить">
 </form>
+
 <hr>
 </body>
 </html>
