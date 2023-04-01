@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman";
+    background: #000000;
+}
+
+.products-serge {
+    color: white;
+}
+
+.product-content {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 2rem;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.product-content p,h3{
+    color: white;
+}
+.product-content img{
+    height: 220px;
+    width: 350px;
+}
