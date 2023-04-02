@@ -27,11 +27,12 @@
 <hr>
 <h3>Добавить отзыв</h3>
 <form action="/product/reviews" method="post">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     Отзыв: <input type="text" , name="feedback"/><br><br>
     Оценка: <input type="number" , name="score"/><br><br>
     <input type="submit" value="Добавить">
 </form>
-
-<hr>
+<a href="/feedback">отзывы</a>
+    <hr>
 </body>
 </html>

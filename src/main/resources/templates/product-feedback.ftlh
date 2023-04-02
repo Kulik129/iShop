@@ -8,11 +8,12 @@
     <title>iShop</title>
 </head>
 <body>
-<h1>iShop</h1><hr>
+<h1 style="color: blueviolet"><a href="/">iShop</a><h1/>
 <h4>Отзывы о товаре</h4>
 <#list reviews as review>
     <p>Отзыв: ${review.feedback} отценка: ${review.score}</p>
     <form action="/product/delete-feedback/${review.id}" method="post">
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <input type="submit" value="Удалить"/>
     </form>
 </#list>

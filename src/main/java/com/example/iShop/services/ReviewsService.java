@@ -23,7 +23,7 @@ public class ReviewsService {
         return reviewsRepository.findAll();
     }
 
-    public void addFeedback(Principal principal, Reviews reviews) {
+    public void addFeedback(Reviews reviews) {
         log.info("save new {}", reviews);
         reviewsRepository.save(reviews);
     }

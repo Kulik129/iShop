@@ -25,4 +25,5 @@ public class Reviews {
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY )
     @JoinColumn
     private Product productReviews;
+
 }

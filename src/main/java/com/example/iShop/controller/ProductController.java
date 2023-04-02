@@ -54,8 +54,8 @@ public class ProductController {
 
 
     @PostMapping("/product/reviews")
-    public String createFeedback(Reviews reviews, Principal principal) {
-        reviewsService.addFeedback(principal, reviews);
+    public String createFeedback(Reviews reviews) {
+        reviewsService.addFeedback(reviews);
         return "redirect:/";
     }
 
